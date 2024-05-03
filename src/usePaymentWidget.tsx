@@ -2,6 +2,7 @@ import { CardContext } from './machine/cardMachine';
 import { CardStepper } from './pages/CardStepper/CardStepper';
 import { createPortal } from 'react-dom';
 import { useDisclosure } from '@hooks/useDisclosure';
+import './styles/index.css';
 
 export function usePaymentWidget() {
   const [opened, handler] = useDisclosure(false);
