@@ -1,0 +1,57 @@
+@import './card.css';
+@import './input.css';
+@import './button.css';
+@import './modal.css';
+@import './utils.css';
+@import './tooltip.css';
+
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  background-color: #e5e5e5;
+}
+
+input {
+  font-size: 16px;
+}
+
+.widget {
+  background-color: #fff;
+  width: 320px;
+  min-width: 320px;
+  height: 700px;
+  position: absolute;
+  border-radius: 15px;
+  overflow: auto;
+  padding: 16px 24px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.app {
+  height: 100%;
+  padding: 16px 24px;
+}
+
+.page-title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+
+  color: #383838;
+}
+
+.relative-box {
+  position: relative;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
