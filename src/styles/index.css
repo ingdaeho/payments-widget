@@ -5,23 +5,21 @@
 @import './utils.css';
 @import './tooltip.css';
 
-body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  align-items: center;
-  justify-content: center;
-  background-color: #e5e5e5;
-}
-
-input {
-  font-size: 16px;
+.overlay {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
 }
 
 .widget {
   background-color: #fff;
-  width: 320px;
-  min-width: 320px;
+  width: 375px;
+  min-width: 375px;
   height: 700px;
   position: absolute;
   border-radius: 15px;
@@ -30,11 +28,6 @@ input {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.app {
-  height: 100%;
-  padding: 16px 24px;
 }
 
 .page-title {

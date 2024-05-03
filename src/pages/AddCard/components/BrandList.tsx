@@ -49,7 +49,7 @@ interface Props {
 
 export const BrandList = ({ onClick }: Props) => {
   return (
-    <div className='flex-center grid'>
+    <div className='grid'>
       {CardBrandList.map((brand) => (
         <div className='modal-item-container' key={brand.label}>
           <div
