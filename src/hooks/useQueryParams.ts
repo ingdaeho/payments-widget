@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react';
-import { CardContext } from '@machine/cardMachine';
-import { PagesType } from '../constants/pages';
-import { goPageEventTypeMap } from '../types';
 
 export const useQueryParams = () => {
   const [params, setParams] = useState(new URLSearchParams(location.search));
-  const { send } = CardContext.useActorRef();
 
-  const setQueryParams = (newParams: { [key: string]: string }) => {
+  const setQueryParams = (newParams: { [key: string]: string } | null) => {
     const searchParams = new URLSearchParams();
+
+    if (newParams === null) {
+      const url = new URL(location.href);
+      const newUrl = `${url.origin}${url.pathname}`;
+      window.history.pushState({}, '', newUrl);
+      return;
+    }
 
     for (const key in newParams) {
       if (
@@ -26,12 +29,6 @@ export const useQueryParams = () => {
   useEffect(() => {
     const handlePopState = () => {
       const newParams = new URLSearchParams(location.search);
-      const newStep = newParams.get('step') as PagesType;
-
-      if (newStep) {
-        send({ type: goPageEventTypeMap[newStep] });
-      }
-
       setParams(newParams);
     };
 
@@ -39,7 +36,7 @@ export const useQueryParams = () => {
     return () => {
       window.removeEventListener('popstate', handlePopState);
     };
-  }, [send]);
+  }, []);
 
   return { params, setQueryParams };
 };

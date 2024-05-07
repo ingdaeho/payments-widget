@@ -38,7 +38,7 @@ const CardList = ({ onNext, onEdit }: Props) => {
                 <Card {...card} onClick={() => onEdit(card.id)} />
               </div>
 
-              <div className='flex-center '>
+              <div className='flex-center'>
                 <span className='card-nickname'>{card.nickname}</span>
               </div>
             </div>
